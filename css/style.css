@@ -6,26 +6,130 @@
 
 body {
     background: #333444;
+}
+
+.carousel-wrapper {
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 80vh;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
 }
 
 .carousel {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 350px;
-    background: slategrey;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 40px;
+    width: 100%;
+    padding: 40px 0;
+    scrollbar-width: none;
 }
 
 .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 350px;
+    scroll-snap-align: center;
+    flex: 0 0 calc(33.33% - 20px);
     height: 200px;
-    background: lightgray;
+    background: lightslategrey;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    transform: scale(0.9);
+    opacity: 0.5;
+    transition: transform 0.3s ease;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    background: lightslategrey;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-info {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    height: 40%;
+    width: 100%;
+    background: #222333;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card.active .card-info {
+    display: flex;
+}
+
+.card-title {
+    color: white;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-description {
+    color: lightslategray;
+    font-size: 0.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-link {
+    margin-left: auto;
+    color: #44be7b;
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+.card.active {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.spacer {
+    flex: 0 0 calc(50% - (33.333% / 2));
+}
+
+.scroll-btn {
+    position: absolute;
+    z-index: 10;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.scroll-btn:hover {
+    opacity: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }
